@@ -1,0 +1,45 @@
+﻿
+Graph Builder(
+	Size( 618, 602 ),
+	Show Control Panel( 0 ),
+	Show Title( 0 ),
+	Show Footer( 0 ),
+	Variables(
+		X( :Name( "Age class (years)" ) ),
+		Y( :g CO₂ m⁻² d⁻¹ ),
+		Overlay( :Source )
+	),
+	Elements( Points( X, Y, Legend( 9 ) ), Smoother( X, Y, Legend( 10 ) ) ),
+	SendToReport(
+		Dispatch(
+			{},
+			"Age class (years)",
+			ScaleBox,
+			{Min( -4.75982532751092 ), Max( 105.489788524246 ), Inc( 20 ),
+			Minor Ticks( 1 ), Label Row( Set Font Size( 14 ) )}
+		),
+		Dispatch(
+			{},
+			"g CO₂ m⁻² d⁻¹",
+			ScaleBox,
+			{Label Row( Set Font Size( 14 ) )}
+		),
+		Dispatch(
+			{},
+			"400",
+			LegendBox,
+			{font( "Segoe UI", 12, "Bold" ), Set Wrap( 16 ),
+			Legend Position(
+				{9, [-3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3,
+				-3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3], 10,
+				[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 11, 12, 16, 17, 18,
+				19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]}
+			), Position(
+				{-3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3,
+				-3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, 0, 1, 2,
+				3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 11, 12, 16, 17, 18, 19, 20, 21,
+				22, 23, 24, 25, 26, 27, 28, 29, 30, 31}
+			)}
+		)
+	)
+);

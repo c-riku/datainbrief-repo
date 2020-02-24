@@ -1,0 +1,66 @@
+﻿
+Graph Builder(
+	Size( 570, 522 ),
+	Legend Position( "Inside Left" ),
+	Show Title( 0 ),
+	Show Footer( 0 ),
+	Variables(
+		X( :Name( "Age class (years)" ) ),
+		Y( :Name( "Rh (g CO₂ m⁻² d⁻¹)" ) ),
+		Y( :Name( "Ra (g CO₂ m⁻² d⁻¹)" ), Position( 1 ) ),
+		Color( :Severity )
+	),
+	Elements(
+		Points( X, Y( 1 ), Y( 2 ), Legend( 50 ) ),
+		Smoother( X, Y( 1 ), Y( 2 ), Legend( 51 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"Age class (years)",
+			ScaleBox,
+			{Min( -2.14572599294089 ), Max( 103.429906201541 ), Inc( 20 ),
+			Minor Ticks( 1 ), Label Row( Set Font Size( 14 ) )}
+		),
+		Dispatch(
+			{},
+			"Rh (g CO₂ m⁻² d⁻¹)",
+			ScaleBox,
+			{Label Row( Set Font Size( 14 ) )}
+		),
+		Dispatch(
+			{},
+			"400",
+			ScaleBox,
+			{Legend Model(
+				50,
+				Level Name( 0, "High-severity", Item ID( "H", 1 ) ),
+				Level Name( 1, "Low-severity", Item ID( "L", 1 ) ),
+				Level Name( 2, "Rh", Item ID( "Rh (g CO₂ m⁻² d⁻¹)", 1 ) ),
+				Level Name( 3, "Ra", Item ID( "Ra (g CO₂ m⁻² d⁻¹)", 1 ) ),
+				Properties( 0, {Line Color( 19 )}, Item ID( "H", 1 ) ),
+				Properties(
+					1,
+					{Line Color( 21 ), Marker Size( 4 )},
+					Item ID( "L", 1 )
+				),
+				Properties(
+					2,
+					{Marker Size( 4 )},
+					Item ID( "Rh (g CO₂ m⁻² d⁻¹)", 1 )
+				)
+			), Legend Model(
+				51,
+				Level Name( 0, "Rh", Item ID( "Smooth(Rh (g CO₂ m⁻² d⁻¹))", 1 ) ),
+				Level Name( 1, "Ra", Item ID( "Smooth(Ra (g CO₂ m⁻² d⁻¹))", 1 ) )
+			)}
+		),
+		Dispatch( {}, "Y title", TextEditBox, {Set Text( "g CO₂ m⁻² d⁻¹" )} ),
+		Dispatch(
+			{},
+			"400",
+			LegendBox,
+			{Set Title( "" ), font( "Segoe UI", 12, "Bold" )}
+		)
+	)
+);

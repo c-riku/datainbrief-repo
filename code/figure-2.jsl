@@ -1,0 +1,54 @@
+﻿
+Graph Builder(
+	Size( 522, 450 ),
+	Show Control Panel( 0 ),
+	Legend Position( "Inside Left" ),
+	Show Title( 0 ),
+	Show Footer( 0 ),
+	Variables(
+		X( :Name( "Age class (years)" ) ),
+		Y( :g CO₂ m⁻² d⁻¹ ),
+		Overlay( :Severity ),
+		Color( :Severity )
+	),
+	Elements( Points( X, Y, Legend( 33 ) ), Smoother( X, Y, Legend( 34 ) ) ),
+	SendToReport(
+		Dispatch(
+			{},
+			"Age class (years)",
+			ScaleBox,
+			{Min( -3.03501156233519 ), Max( 103.12101910828 ), Inc( 20 ),
+			Minor Ticks( 1 ), Label Row( Set Font Size( 14 ) )}
+		),
+		Dispatch(
+			{},
+			"g CO₂ m⁻² d⁻¹",
+			ScaleBox,
+			{Label Row( Set Font Size( 14 ) )}
+		),
+		Dispatch(
+			{},
+			"400",
+			ScaleBox,
+			{Legend Model(
+				33,
+				Level Name( 0, "High-severity", Item ID( "H", 1 ) ),
+				Level Name( 1, "Low-severity", Item ID( "L", 1 ) ),
+				Properties(
+					0,
+					{Line Color( 19 ), Marker( "Dot" )},
+					Item ID( "H", 1 )
+				),
+				Properties( 1, {Line Color( 5 )}, Item ID( "L", 1 ) )
+			), Legend Model(
+				34,
+				Level Name( 0, "High-severity", Item ID( "H", 1 ) ),
+				Level Name( 1, "Low-severity", Item ID( "L", 1 ) ),
+				Properties( 0, {Line Color( 19 )}, Item ID( "H", 1 ) ),
+				Properties( 1, {Line Color( 5 )}, Item ID( "L", 1 ) )
+			)}
+		),
+		Dispatch( {}, "graph title", TextEditBox, {Set Text( "" )} ),
+		Dispatch( {}, "400", LegendBox, {font( "Segoe UI", 12, "Bold" )} )
+	)
+);

@@ -1,0 +1,1 @@
+﻿Open("D:\Git\project-2\processed-data\ghg-fluxes.jmp", window bounds(-7, 0, 1726, 1406)); New Window("ghg-fluxes - Multivariate of g CO₂ m⁻² d⁻¹", Explore Outliers(Y(:g CO₂ m⁻² d⁻¹), Multivariate Robust Outliers)) << Move Window(1410, 363) << Set Window Icon("ExploreOutliers")

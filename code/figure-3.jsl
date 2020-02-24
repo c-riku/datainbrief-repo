@@ -1,0 +1,61 @@
+﻿
+Bivariate(
+	Y( :mg CH₄ m⁻² d⁻¹ ),
+	X( :Name( "Age class (years)" ) ),
+	Fit Spline(
+		0.05,
+		Standardized,
+		{Report( 0 ), Line Color( "Black" ), Report( 0 )}
+	),
+	Fit Where(
+		:Severity == "H",
+		Fit Spline(
+			0.05,
+			Standardized,
+			{Report( 0 ), Line Color( "Medium Dark Red" ), Line Style( "DashDot" ),
+			Report( 0 )}
+		)
+	),
+	Fit Where(
+		:Severity == "L",
+		Fit Spline(
+			0.05,
+			Standardized,
+			{Report( 0 ), Line Color( {66, 112, 221} ), Line Style( "Dotted" ),
+			Report( 0 )}
+		)
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"1",
+			ScaleBox,
+			{Min( -3.52421875 ), Max( 105.125 ), Inc( 20 ), Minor Ticks( 1 ),
+			Label Row(
+				{Automatic Font Size( 1 ), Automatic Tick Marks( 1 ),
+				Set Font Size( 14 )}
+			)}
+		),
+		Dispatch(
+			{},
+			"2",
+			ScaleBox,
+			{Label Row(
+				{Automatic Font Size( 1 ), Automatic Tick Marks( 1 ),
+				Set Font Size( 14 )}
+			)}
+		),
+		Dispatch(
+			{},
+			"Bivar Plot",
+			FrameBox,
+			{Frame Size( 413, 338 ), DispatchSeg(
+				Line Seg( 1 ),
+				{Line Color( "Black" )}
+			), DispatchSeg(
+				Line Seg( 2 ),
+				{Line Color( "Medium Dark Red" ), Line Style( "DashDot" )}
+			), DispatchSeg( Line Seg( 3 ), {Line Style( "Dotted" )} )}
+		)
+	)
+);

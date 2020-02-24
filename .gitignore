@@ -1,0 +1,9 @@
+# ignore Rhistory files
+*.Rhistory
+#ignore private files
+/manuscript
+/results
+/code/process-data.R
+/raw-data/data-graphs.xlsx
+/raw-data/data-graphs.csv
+/raw-data/data-graphs.txt

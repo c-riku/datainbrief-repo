@@ -1,0 +1,57 @@
+﻿
+Graph Builder(
+	Size( 522, 624 ),
+	Show Control Panel( 0 ),
+	Show Title( 0 ),
+	Show Footer( 0 ),
+	Variables(
+		X( :Name( "Age class (years)" ) ),
+		Y( :mg CH₄ m⁻² d⁻¹ ),
+		Overlay( :Permafrost ),
+		Color( :Source )
+	),
+	Elements( Points( X, Y, Legend( 13 ) ), Smoother( X, Y, Legend( 14 ) ) ),
+	SendToReport(
+		Dispatch(
+			{},
+			"Age class (years)",
+			ScaleBox,
+			{Min( -3.845314110135 ), Max( 103.492407809111 ), Inc( 20 ),
+			Minor Ticks( 1 ), Label Row( Set Font Size( 14 ) )}
+		),
+		Dispatch(
+			{},
+			"mg CH₄ m⁻² d⁻¹",
+			ScaleBox,
+			{Label Row( Set Font Size( 14 ) )}
+		),
+		Dispatch(
+			{},
+			"400",
+			ScaleBox,
+			{Legend Model(
+				13,
+				Level Name( 32, "Nonpermafrost soil", Item ID( "N", 1 ) ),
+				Level Name( 33, "Permafrost soil", Item ID( "Y", 1 ) )
+			), Legend Model(
+				14,
+				Level Name( 0, "Nonpermafrost soil", Item ID( "N", 1 ) ),
+				Level Name( 1, "Permafrost soil", Item ID( "Y", 1 ) )
+			)}
+		),
+		Dispatch(
+			{},
+			"400",
+			LegendBox,
+			{Set Title( "" ), font( "Segoe UI", 12, "Bold" ),
+			Legend Position(
+				{13, [-1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 1, -1, 2, 3, 4, -1, 5,
+				6, -1, -1, -1, -1, 7, -1, 8, -1, -1, 9, 10, -1, 11, -1, 12, 13], 14,
+				[14, 15]}
+			), Position(
+				{-1, -1, -1, 0, -1, -1, -1, -1, -1, -1, 1, -1, 2, 3, 4, -1, 5, 6,
+				-1, -1, -1, -1, 7, -1, 8, -1, -1, 9, 10, -1, 11, -1, 12, 13, 14, 15}
+			)}
+		)
+	)
+);

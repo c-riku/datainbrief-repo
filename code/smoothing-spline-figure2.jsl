@@ -1,0 +1,31 @@
+﻿
+Bivariate(
+	Y( :g CO₂ m⁻² d⁻¹ ),
+	X( :Name( "Age class (years)" ) ),
+	Fit Where(
+		:Severity 2 == "High-severity",
+		Fit Spline( 0.05, Standardized, {Line Color( {212, 73, 88} )} )
+	),
+	Fit Where(
+		:Severity 2 == "Low-severity",
+		Fit Spline( 0.05, Standardized, {Line Color( {66, 112, 221} )} )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"Bivar Plot",
+			FrameBox,
+			{Frame Size( 430, 342 ), Row Legend(
+				Severity 2,
+				Color( 1 ),
+				Color Theme( "JMP Default" ),
+				Marker( 1 ),
+				Marker Theme( "Standard" ),
+				Continuous Scale( 0 ),
+				Reverse Scale( 0 ),
+				Excluded Rows( 0 )
+			)}
+		),
+		Dispatch( {}, "Severity 2", StringColBox, {Set Heading( "" )} )
+	)
+);

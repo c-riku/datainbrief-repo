@@ -1,0 +1,71 @@
+﻿
+Bivariate(
+	Y( :mg CH₄ m⁻² d⁻¹ ),
+	X( :Name( "Age class (years)" ) ),
+	Fit Where(
+		:Severity 2 == "High-severity",
+		Fit Spline(
+			0.05,
+			Standardized,
+			{Line Color( {212, 73, 88} ), Line Style( "DashDot" )}
+		)
+	),
+	Fit Where(
+		:Severity 2 == "Low-severity",
+		Fit Spline(
+			0.05,
+			Standardized,
+			{Line Color( {66, 112, 221} ), Line Style( "Dotted" )}
+		)
+	),
+	Fit Spline( 0.05, Standardized, {Line Color( "Black" )} ),
+	SendToReport(
+		Dispatch(
+			{},
+			"1",
+			ScaleBox,
+			{Min( -3.56643356643357 ), Max( 103.911356708559 ), Inc( 20 ),
+			Minor Ticks( 1 ), Label Row( Set Font Size( 14 ) )}
+		),
+		Dispatch( {}, "2", ScaleBox, {Label Row( Set Font Size( 14 ) )} ),
+		Dispatch(
+			{},
+			"Bivar Plot",
+			FrameBox,
+			{Frame Size( 429, 352 ), DispatchSeg(
+				Line Seg( 1 ),
+				{Line Style( "DashDot" )}
+			), DispatchSeg( Line Seg( 2 ), {Line Style( "Dotted" )} ),
+			DispatchSeg( Line Seg( 3 ), {Line Color( "Black" )} ),
+			Row Legend(
+				Severity 2,
+				Color( 1 ),
+				Color Theme( "JMP Default" ),
+				Marker( 1 ),
+				Marker Theme( "Standard" ),
+				Continuous Scale( 0 ),
+				Reverse Scale( 0 ),
+				Excluded Rows( 0 )
+			)}
+		),
+		Dispatch( {}, "Severity 2", StringColBox, {Set Heading( "" )} ),
+		Dispatch(
+			{},
+			"Smoothing Spline Fit, lambda=0.05 Standardized Severity 2==High-severity",
+			OutlineBox,
+			{Close( 1 ), Set Title( "High-severity" )}
+		),
+		Dispatch(
+			{},
+			"Smoothing Spline Fit, lambda=0.05 Standardized Severity 2==Low-severity",
+			OutlineBox,
+			{Close( 1 ), Set Title( "Low-severity" )}
+		),
+		Dispatch(
+			{},
+			"Smoothing Spline Fit, lambda=0.05 Standardized",
+			OutlineBox,
+			{Close( 1 ), Set Title( "General trend" )}
+		)
+	)
+);
